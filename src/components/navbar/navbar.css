@@ -1,0 +1,17 @@
+header {
+    height: 100px;
+    background-color: #020203;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+header .logo {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo img {
+    height: 60px;
+}

@@ -1,0 +1,18 @@
+.main {
+    margin: 60px 60px 60px 160px;
+}
+
+.user .username {
+    color: #ff0101;
+}
+
+.user h1 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.user p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
