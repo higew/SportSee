@@ -1,8 +1,7 @@
-import React, { PureComponent } from "react";
+import React, { useEffect, useState } from "react";
 import {
     BarChart,
     Bar,
-    Cell,
     XAxis,
     YAxis,
     CartesianGrid,
@@ -10,21 +9,24 @@ import {
     Legend,
     ResponsiveContainer,
 } from "recharts";
-import { USER_ACTIVITY } from "../../assets/data/data";
 
-export const BarChartDiagram = (props) => {
-    const data = [];
-    USER_ACTIVITY[0].sessions.forEach((item, index) => {
-        data.push({
-        nameXAxis: index + 1,
-        kg: item.kilogram,
-        kcal: item.calories,
+function BarChartDiagram ({datas}) {
+    const [activityData, setActivityData] = useState([]);
+
+    useEffect(() => {
+        if (datas.activity?.sessions.length >= 1)  {
+        setActivityData(datas.activity?.sessions);
+        }
+    }, [datas]);
+
+        const data = activityData.map((element, index) => {
+        return {
+            nameXAxis: index + 1,
+            kg: element.kilogram,
+            kcal: element.calories
+        };
         });
-    });
-
-    console.log(USER_ACTIVITY[0].sessions.length);
-    console.log(data);
-    console.log(USER_ACTIVITY[0].sessions);
+        
 
     return (
         <ResponsiveContainer width="100%" aspect={3}>
@@ -40,3 +42,5 @@ export const BarChartDiagram = (props) => {
         </ResponsiveContainer>
     );
 };
+
+export default BarChartDiagram;
