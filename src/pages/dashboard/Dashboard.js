@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import BarChartDiagram from '../../components/barChart/BarChart';
 import LineChartDiagram from '../../components/lineChart/LineChart';
+import RadarChartDiagram from '../../components/radarChart/RadarChart';
 import { apiCall, newUserData } from '../../services/Api';
 import { USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_MAIN_DATA, USER_PERFORMANCE } from '../../services/data'
 import './dashboard.css'
@@ -51,6 +52,7 @@ function Dashboard() {
                 </div>
                 <BarChartDiagram datas={datas}/>
                 <LineChartDiagram datas={datas}/>
+                <RadarChartDiagram datas={datas}/>
             </section>
         </div>
     );
