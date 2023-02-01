@@ -5,6 +5,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import BarChartDiagram from '../../components/barChart/BarChart';
 import LineChartDiagram from '../../components/lineChart/LineChart';
 import RadarChartDiagram from '../../components/radarChart/RadarChart';
+import PieChartDiagram from '../../components/pieChart/PieChart';
 import { apiCall, newUserData } from '../../services/Api';
 import { USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_MAIN_DATA, USER_PERFORMANCE } from '../../services/data'
 import './dashboard.css'
@@ -50,9 +51,14 @@ function Dashboard() {
                     </h1>
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                 </div>
-                <BarChartDiagram datas={datas}/>
-                <LineChartDiagram datas={datas}/>
-                <RadarChartDiagram datas={datas}/>
+                <div className="graph">
+                    <BarChartDiagram datas={datas}/>
+                    <div className="graph-bottom">
+                        <LineChartDiagram datas={datas}/>
+                        <RadarChartDiagram datas={datas}/>
+                        <PieChartDiagram datas={datas}/>
+                    </div>
+                </div>
             </section>
         </div>
     );
