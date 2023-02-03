@@ -26,6 +26,19 @@ function BarChartDiagram ({datas}) {
             kcal: element.calories
         };
         });
+
+        const CustomTooltip = ({ active, payload }) => {
+            if (active && payload && payload.length) {
+                return (
+                    <div className="custom-tooltip">
+                        <p className="barchart-tooltip-item">{`${payload[0].value + "kg"}`}</p>
+                        <p className="barchart-tooltip-item">{`${payload[1].value + "Kcal"}`}</p>
+                    </div>
+                );
+            }
+        
+            return null;
+        };
         
 
     return (
@@ -36,7 +49,7 @@ function BarChartDiagram ({datas}) {
                     <XAxis dataKey="nameXAxis" tickLine={false} tick={{ fontSize: 14, fontWeight: 500 }} dy={10}/>
                     <YAxis yAxisId={"kg"} dataKey="kg" domain={["dataMin - 2", "dataMax + 2"]} tick={{ fontWeight: "500", fontSize: "14px" }} tickMargin={40} tickLine={false} orientation="right" axisLine={false}/>
                     <YAxis yAxisId={"kcal"}  hide={true}  domain={["dataMin - 100", "dataMax "]}  />
-                    <Tooltip />
+                    <Tooltip content={<CustomTooltip />} />
                     <Bar yAxisId={"kg"} dataKey="kg" fill="#282D30" barSize={7} radius={[3, 3, 0, 0]} />
                     <Bar yAxisId={"kcal"} dataKey="kcal" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
                 </BarChart>

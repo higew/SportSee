@@ -5,6 +5,13 @@
     margin-bottom: 30px;
 }
 
+.barchart-tooltip-item {
+    color: #FFFFFF;
+    background-color: #E60000;
+    padding: 7px;
+    font-size: 14px;
+}
+
 @media (max-width: 1315px) {
     .activity-graph {
         max-width: 560px;
