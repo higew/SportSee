@@ -11,7 +11,9 @@ function LineChartDiagram ({datas}) {
     const initialDayWeek = ["L", "M", "M", "J", "V", "S", "D"];
     const [averageTime, setAverageTime] = useState([]);
     useEffect(() => {
-        if (datas.session?.sessions) {
+        if (datas.sessions?.sessions) {
+            setAverageTime(datas.sessions?.sessions);
+        } else if (datas.session?.sessions) {
             setAverageTime(datas.session?.sessions);
         }
     }, [datas]);
