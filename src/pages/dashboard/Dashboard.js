@@ -25,19 +25,23 @@ function Dashboard() {
             newUserDataMock = { user : USER_MAIN_DATA[1], activity: USER_ACTIVITY[1], session: USER_AVERAGE_SESSIONS[1], performance: USER_PERFORMANCE[1] };
         }
 
-        async function getData() {
+        const getData = async () => {
             await apiCall(userId);
             setDatas({...newUserData})
 
-            setTimeout(function() {
-                if (!newUserData.user) {
-                    console.log('Going into condition to show MockData')
-                    setDatas({...newUserDataMock})
-                }
-            }, 100)
+            if (!newUserData.user) {
+                console.log('Going into condition to show MockData')
+                setDatas({...newUserDataMock})
+            }
         } 
-        getData()
-        console.log(newUserData);
+        // const interval = setInterval(() => {
+        //     getData();
+        // }, 100)
+        // setTimeout(function() {
+        //     clearInterval(interval)
+        // }, 200)
+        getData();
+        console.log(newUserData)
     },[userId] );
 
     return (
