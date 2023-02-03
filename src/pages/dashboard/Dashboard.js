@@ -56,7 +56,7 @@ function Dashboard() {
                         Bonjour
                         <span className="username"> {datas.user?.userInfos.firstName}</span>
                     </h1>
-                    <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+                    <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
                 </div>
                 <div className="graph">
                     <div className="global-graph">

@@ -37,3 +37,13 @@
     flex-direction: row;
     gap: 30px;
 }
+
+@media (max-width: 1315px) {
+    .user h1 {
+        font-size: 30px;
+    }
+
+    .user p {
+        font-size: 15px;
+    }
+}
