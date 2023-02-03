@@ -39,3 +39,9 @@
     bottom: 200px;
     left: 50px;
 }
+
+@media (max-width: 1315px) {
+    .sidenav #sportlist-item-yoga {
+        margin-top: 0;
+    }
+}

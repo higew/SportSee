@@ -5,6 +5,12 @@
     margin: auto;
 }
 
+@media (max-width: 1315px) {
+    .main {
+        max-width: 650px;
+    }
+}
+
 .user .username {
     color: #ff0101;
 }

@@ -11,7 +11,7 @@ export const apiCall = async (userid) => {
     await axios.all([main, activity, sessions, performance]).then(axios.spread((...responses)=>{
         newUserData.user = responses[0].data.data
         newUserData.activity = responses[1].data.data
-        newUserData.sessions = responses[2].data.data
+        newUserData.session = responses[2].data.data
         newUserData.performance = responses[3].data.data
 
     })).catch(errors=>{

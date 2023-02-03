@@ -3,7 +3,8 @@ import {
     LineChart,
     Line,
     XAxis,
-    YAxis
+    YAxis,
+    ResponsiveContainer
 } from "recharts";
 import './lineChart.css';
 
@@ -11,9 +12,7 @@ function LineChartDiagram ({datas}) {
     const initialDayWeek = ["L", "M", "M", "J", "V", "S", "D"];
     const [averageTime, setAverageTime] = useState([]);
     useEffect(() => {
-        if (datas.sessions?.sessions) {
-            setAverageTime(datas.sessions?.sessions);
-        } else if (datas.session?.sessions) {
+        if (datas.session?.sessions) {
             setAverageTime(datas.session?.sessions);
         }
     }, [datas]);
@@ -29,6 +28,7 @@ function LineChartDiagram ({datas}) {
     return (
         <div className='line-chart-section'>
             <h2 className='title-line-chart'>Durée moyenne des sessions</h2>
+            <ResponsiveContainer aspect={1}>
             <LineChart width={260} height={280} data={data} 
                 margin={{
                     right: 5,
@@ -46,6 +46,7 @@ function LineChartDiagram ({datas}) {
                         r: 5,
                     }}/>
             </LineChart>
+            </ResponsiveContainer>
         </div>
     );
 };

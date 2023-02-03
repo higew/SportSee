@@ -4,3 +4,9 @@
     padding: 30px 0 30px 0;
     margin-bottom: 30px;
 }
+
+@media (max-width: 1315px) {
+    .activity-graph {
+        max-width: 560px;
+    }
+}
