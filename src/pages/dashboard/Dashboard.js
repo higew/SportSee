@@ -6,6 +6,7 @@ import BarChartDiagram from '../../components/barChart/BarChart';
 import LineChartDiagram from '../../components/lineChart/LineChart';
 import RadarChartDiagram from '../../components/radarChart/RadarChart';
 import PieChartDiagram from '../../components/pieChart/PieChart';
+import DataCount from '../../components/dataCount/DataCount';
 import { apiCall, newUserData } from '../../services/Api';
 import { USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_MAIN_DATA, USER_PERFORMANCE } from '../../services/data'
 import './dashboard.css'
@@ -26,16 +27,18 @@ function Dashboard() {
 
         async function getData() {
             await apiCall(userId);
-            setDatas(() => ({...newUserData}))
-            
-            if (!newUserData.user || newUserData == null || newUserData === undefined || newUserData.length === 0) {
-                setDatas(() => ({...newUserDataMock}))
-            }
-        }
-    
-        getData();
+            setDatas({...newUserData})
+
+            setTimeout(function() {
+                if (!newUserData.user) {
+                    console.log('Going into condition to show MockData')
+                    setDatas({...newUserDataMock})
+                }
+            }, 100)
+        } 
+        getData()
+        console.log(newUserData);
     },[userId] );
-    console.log(newUserData);   
 
     return (
         <div className="wrapper">
@@ -52,12 +55,15 @@ function Dashboard() {
                     <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
                 </div>
                 <div className="graph">
-                    <BarChartDiagram datas={datas}/>
-                    <div className="graph-bottom">
-                        <LineChartDiagram datas={datas}/>
-                        <RadarChartDiagram datas={datas}/>
-                        <PieChartDiagram datas={datas}/>
+                    <div className="global-graph">
+                        <BarChartDiagram datas={datas}/>
+                        <div className="graph-bottom">
+                            <LineChartDiagram datas={datas}/>
+                            <RadarChartDiagram datas={datas}/>
+                            <PieChartDiagram datas={datas}/>
+                        </div>
                     </div>
+                    <DataCount datas={datas}/>
                 </div>
             </section>
         </div>

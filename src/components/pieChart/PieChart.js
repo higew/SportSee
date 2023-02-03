@@ -10,13 +10,14 @@ function PieChartDiagram({datas}) {
     useEffect(() => {
         if (datas.user?.todayScore) {
             setTodayScore(datas.user?.todayScore * 100);
+        } else if (datas.user?.score){
+            setTodayScore(datas.user?.score * 100);
         }
     }, [datas]);
 
     const data = [
         {total: Number(todayScore)},
         {total: 100 - Number(todayScore)}]
-        console.log(data);
 
     function CustomLegend({ payload }) {
         if (payload && payload.length) {

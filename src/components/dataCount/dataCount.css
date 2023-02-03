@@ -1,0 +1,36 @@
+.box-icon {
+    display: flex;
+    border-radius: 5px;
+    background: #fbfbfb;
+    padding: 16px;
+    width: 160px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box-info {
+    margin: 0 16px;
+    font-size: 17px;
+    font-weight: 700;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.box-info p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 0px; 
+    margin-top: 0px;
+}
+
+.p-data {
+    margin-left: 0px;
+    margin-bottom: 13px;
+}
+.data-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
