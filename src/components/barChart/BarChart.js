@@ -43,6 +43,23 @@ function BarChartDiagram ({datas}) {
 
     return (
         <div className="activity-graph">
+            <div className="legend-container">
+                <div className="title">Activité quotidienne</div>
+                <div className="barchart-legend">
+                    <div className="barchart-legend-item">
+                        <span id="barchart-legend-item-icon-kg"></span>
+                        <span className="barchart-legend-item-text">
+                            Poids (kg)
+                        </span>
+                    </div>
+                    <div className="barchart-legend-item">
+                        <span id="barchart-legend-item-icon-kcal"></span>
+                        <span className="barchart-legend-item-text">
+                            Calories brûlées (kCal)
+                        </span>
+                    </div>
+                </div>
+            </div>
             <ResponsiveContainer aspect={3}>
                 <BarChart width="60%" height={300} data={data} barCategoryGap={18} barGap={6} margin={{top: 50, right: 10, left: 40, bottom: 5}}>
                     <CartesianGrid strokeDasharray="2 2" vertical={false} />

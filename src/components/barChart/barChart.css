@@ -5,6 +5,43 @@
     margin-bottom: 30px;
 }
 
+.activity-graph .legend-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.activity-graph .legend-container .title{
+    margin-left: 32px;
+    font-weight: 500;
+}
+
+.barchart-legend {
+    display: flex;
+}
+.barchart-legend .barchart-legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 32px;
+}
+.barchart-legend .barchart-legend-item-text {
+    font-size: 14px;
+}
+#barchart-legend-item-icon-kg, #barchart-legend-item-icon-kcal {
+    background-color: #282D30;
+    height: 8px;
+    width: 8px;
+    display: flex;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+#barchart-legend-item-icon-kg span, #barchart-legend-item-icon-kcal span {
+    font-size: 14px;
+}
+#barchart-legend-item-icon-kcal {
+    background-color: #E60000;
+}
+
 .barchart-tooltip-item {
     color: #FFFFFF;
     background-color: #E60000;
