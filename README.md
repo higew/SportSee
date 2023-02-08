@@ -19,8 +19,7 @@ SportSee is a startup dedicated to sports coaching. They decided to launch a new
 
 - Prerequisites :
   NodeJS
-- Fork this repository : https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
-- Clone it on your computer.
+- Clone the api on your computer : https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
 - Install dependencies :
   `npm install`
   This command will allow you to install the dependencies.
