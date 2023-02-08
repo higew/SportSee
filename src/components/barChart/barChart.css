@@ -45,8 +45,9 @@
 .barchart-tooltip-item {
     color: #FFFFFF;
     background-color: #E60000;
-    padding: 7px;
+    padding: 10px;
     font-size: 14px;
+    margin: 0px;
 }
 
 @media (max-width: 1315px) {
