@@ -3,6 +3,7 @@ import iconCarb from '../../assets/pictos/carbs-icon.svg'
 import iconFat from '../../assets/pictos/fat-icon.svg'
 import iconProt from '../../assets/pictos/protein-icon.svg'
 import "./dataCount.css"
+import PropTypes from "prop-types"
 
 function DataCount({datas}) {
     return (
@@ -34,9 +35,20 @@ function DataCount({datas}) {
                         <p className='p-data'>Lipides</p>
                     </div>
             </div>
-
         </div>
     );
 };
 
 export default DataCount;
+
+DataCount.propTypes = {
+    datas: PropTypes.shape({
+        user: PropTypes.shape({
+            keyData: PropTypes.any.isRequired,
+            calorieCount: PropTypes.number,
+            proteinCount: PropTypes.number,
+            carbohydrateCount: PropTypes.number,
+            lipidCount: PropTypes.number
+        })
+    })
+}

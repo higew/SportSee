@@ -11,6 +11,26 @@ import { apiCall, newUserData } from '../../services/Api';
 import { USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_MAIN_DATA, USER_PERFORMANCE } from '../../services/data'
 import './dashboard.css'
 
+/** This function renders the dashboard.
+ * 
+ * The userId is defined with the number in the url.
+ * 
+ * If the userId is 12, then the data is fetched from the index [0] from the mockdatas.
+ * 
+ * If the userId is 18, then the data is fetched from the index [1] from the mockdatas.
+ * 
+ * First the data is fetched from the API. 
+ * If the data is not fetched from the API, then we take the mocked datas from the index [0 or 1].
+ * 
+ * @returns graphs components with the props datas (BarChartDiagram, LineChartDiagram, 
+ *  RadarChartDiagram and PieChartDiagram) and also returns some Data informations about calories.
+ * @param {string} id
+ * @param {number} userId
+ * @param {object} datas
+ * @param {object} newUserDataMock
+ * @param {object} newUserData
+ */
+
 function Dashboard() {
     const { id } = useParams()
     const userId = Number(id)

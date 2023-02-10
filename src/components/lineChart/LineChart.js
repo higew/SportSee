@@ -8,6 +8,20 @@ import {
     ResponsiveContainer
 } from "recharts";
 import './lineChart.css';
+import PropTypes from "prop-types"
+
+/**
+ * Using a useEffect hook to set the state of averageTime to the data to display in the
+ * LineChart.
+ * @returns The LineChart component
+ * @param {object} datas
+ * @param {string} initialDayWeek
+ * @param {object} averageTime
+ * @param {object} data
+ * @param {object} payload
+ * @component LineChartDiagram
+ * 
+ */
 
 function LineChartDiagram ({datas}) {
     const initialDayWeek = ["L", "M", "M", "J", "V", "S", "D"];
@@ -70,3 +84,13 @@ function LineChartDiagram ({datas}) {
 };
 
 export default LineChartDiagram;
+
+LineChartDiagram.propTypes = {
+    datas: PropTypes.shape({
+        session: PropTypes.shape({
+            sessions: PropTypes.any.isRequired,
+            initialDayWeek: PropTypes.string,
+            sessionLength: PropTypes.number
+        })
+    })
+}

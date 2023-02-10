@@ -2,6 +2,11 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import "./home.css"
 
+/**
+ * Home is a function component that returns two buttons to choose the user profile to navigate to.
+ * @returns the home page content
+ */
+
 function Home() {
     return (
         <div>

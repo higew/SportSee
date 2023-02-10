@@ -9,6 +9,19 @@ import {
     ResponsiveContainer,
 } from "recharts";
 import './barChart.css'
+import PropTypes from "prop-types"
+
+/**
+ * Using a useEffect hook to set the state of activityData to the data to display in the
+ * BarChart.
+ * @returns The BarChart component
+ * @param {object} datas
+ * @param {object} activityData
+ * @param {object} data
+ * @param {object} payload
+ * @component BarChartDiagram
+ * 
+ */
 
 function BarChartDiagram ({datas}) {
     const [activityData, setActivityData] = useState([]);
@@ -76,3 +89,14 @@ function BarChartDiagram ({datas}) {
 };
 
 export default BarChartDiagram;
+
+BarChartDiagram.propTypes = {
+    datas: PropTypes.shape({
+        activity: PropTypes.shape({
+            sessions: PropTypes.any.isRequired,
+            nameXAxis: PropTypes.string,
+            kg: PropTypes.number,
+            kcal: PropTypes.number,
+        })
+    })
+};

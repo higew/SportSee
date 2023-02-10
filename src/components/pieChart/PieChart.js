@@ -2,6 +2,21 @@ import React from "react";
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from "recharts";
 import { useEffect, useState } from "react";
 import "./pieChart.css"
+import PropTypes from "prop-types"
+
+/**
+ * Using a useEffect hook to set the state of todayScore or score to the data to display in the
+ * PieChart.
+ * @returns The pieChart component
+ * @param {object} datas
+ * @param {string} COLORS
+ * @param {object} todayScore
+ * @param {object} score
+ * @param {object} data
+ * @param {object} payload
+ * @component PieChartDiagram
+ * 
+ */
 
 function PieChartDiagram({datas}) {
     const [todayScore, setTodayScore] = useState(0);
@@ -51,3 +66,12 @@ function PieChartDiagram({datas}) {
 };
 
 export default PieChartDiagram;
+
+PieChartDiagram.propTypes = {
+    datas: PropTypes.shape({
+        user: PropTypes.shape({
+            todayScore: PropTypes.number,
+            score: PropTypes.number,
+        })
+    })
+}

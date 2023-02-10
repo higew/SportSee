@@ -1,6 +1,18 @@
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer} from "recharts";
 import "./radarChart.css"
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types"
+
+/**
+ * Using a useEffect hook to set the state of sessionPerf to the data to display in the
+ * RadarChart.
+ * @returns The RadarChart component
+ * @param {object} datas
+ * @param {string} categories
+ * @param {object} sessionPerf
+ * @param {object} data
+ * @component RadarChartDiagram
+ */
 
 function RadarChartDiagram({ datas }) {
     const categories = ["Cardio" , "Energie" , "Endurance" , "Force" , "Vitesse" , "Intensité"];
@@ -34,3 +46,13 @@ function RadarChartDiagram({ datas }) {
 };
 
 export default RadarChartDiagram;
+
+RadarChartDiagram.propTypes = {
+    datas: PropTypes.shape({
+        performance: PropTypes.shape({
+            data: PropTypes.any.isRequired,
+            value: PropTypes.number,
+            kind: PropTypes.object.isRequired,
+        })
+    })
+}

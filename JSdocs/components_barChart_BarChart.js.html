@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/barChart/BarChart.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/barChart/BarChart.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from "react";
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+} from "recharts";
+import './barChart.css'
+import PropTypes from "prop-types"
+
+/**
+ * Using a useEffect hook to set the state of activityData to the data to display in the
+ * BarChart.
+ * @returns The BarChart component
+ * @param {object} datas
+ * @param {object} activityData
+ * @param {object} data
+ * @param {object} payload
+ * @component BarChartDiagram
+ * 
+ */
+
+function BarChartDiagram ({datas}) {
+    const [activityData, setActivityData] = useState([]);
+
+    useEffect(() => {
+        if (datas.activity?.sessions.length >= 1)  {
+        setActivityData(datas.activity?.sessions);
+        }
+    }, [datas]);
+
+        const data = activityData.map((element, index) => {
+        return {
+            nameXAxis: index + 1,
+            kg: element.kilogram,
+            kcal: element.calories
+        };
+        });
+
+        const CustomTooltip = ({ active, payload }) => {
+            if (active &amp;&amp; payload &amp;&amp; payload.length) {
+                return (
+                    &lt;div className="custom-tooltip">
+                        &lt;p className="barchart-tooltip-item">{`${payload[0].value + "kg"}`}&lt;/p>
+                        &lt;p className="barchart-tooltip-item">{`${payload[1].value + "Kcal"}`}&lt;/p>
+                    &lt;/div>
+                );
+            }
+        
+            return null;
+        };
+        
+
+    return (
+        &lt;div className="activity-graph">
+            &lt;div className="legend-container">
+                &lt;div className="title">Activité quotidienne&lt;/div>
+                &lt;div className="barchart-legend">
+                    &lt;div className="barchart-legend-item">
+                        &lt;span id="barchart-legend-item-icon-kg">&lt;/span>
+                        &lt;span className="barchart-legend-item-text">
+                            Poids (kg)
+                        &lt;/span>
+                    &lt;/div>
+                    &lt;div className="barchart-legend-item">
+                        &lt;span id="barchart-legend-item-icon-kcal">&lt;/span>
+                        &lt;span className="barchart-legend-item-text">
+                            Calories brûlées (kCal)
+                        &lt;/span>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+            &lt;ResponsiveContainer aspect={3}>
+                &lt;BarChart width="60%" height={300} data={data} barCategoryGap={18} barGap={6} margin={{top: 50, right: 10, left: 40, bottom: 5}}>
+                    &lt;CartesianGrid strokeDasharray="2 2" vertical={false} />
+                    &lt;XAxis dataKey="nameXAxis" tickLine={false} tick={{ fontSize: 14, fontWeight: 500 }} dy={10}/>
+                    &lt;YAxis yAxisId={"kg"} dataKey="kg" domain={["dataMin - 2", "dataMax + 2"]} tick={{ fontWeight: "500", fontSize: "14px" }} tickMargin={40} tickLine={false} orientation="right" axisLine={false}/>
+                    &lt;YAxis yAxisId={"kcal"}  hide={true}  domain={["dataMin - 100", "dataMax "]}  />
+                    &lt;Tooltip content={&lt;CustomTooltip />} />
+                    &lt;Bar yAxisId={"kg"} dataKey="kg" fill="#282D30" barSize={7} radius={[3, 3, 0, 0]} />
+                    &lt;Bar yAxisId={"kcal"} dataKey="kcal" fill="#E60000" barSize={7} radius={[3, 3, 0, 0]} />
+                &lt;/BarChart>
+            &lt;/ResponsiveContainer>
+        &lt;/div>
+    );
+};
+
+export default BarChartDiagram;
+
+BarChartDiagram.propTypes = {
+    datas: PropTypes.shape({
+        activity: PropTypes.shape({
+            sessions: PropTypes.any.isRequired,
+            nameXAxis: PropTypes.string,
+            kg: PropTypes.number,
+            kcal: PropTypes.number,
+        })
+    })
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BarChartDiagram">BarChartDiagram</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#LineChartDiagram">LineChartDiagram</a></li><li><a href="global.html#PieChartDiagram">PieChartDiagram</a></li><li><a href="global.html#RadarChartDiagram">RadarChartDiagram</a></li><li><a href="global.html#newUserData">newUserData</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Feb 10 2023 13:16:45 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
